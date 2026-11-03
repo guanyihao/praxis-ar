@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 方案一优化版：眼镜+扫描框+对勾（负空间）
+       优化：
+       - 文字上移，间距约为镜片高度的一半（~42px）
+       - 对勾端头改为圆头，与圆角镜框协调
+       - 镜腿缩短，整体更紧凑 -->
+  <rect width="512" height="512" rx="112" fill="#ffffff"/>
+  <g transform="translate(104 156)">
+    <!-- 眼镜左镜框 -->
+    <rect x="0" y="0" width="120" height="84" rx="18" fill="#267bd4"/>
+    <!-- 眼镜右镜框 -->
+    <rect x="200" y="0" width="120" height="84" rx="18" fill="#267bd4"/>
+    <!-- 镜梁 -->
+    <rect x="120" y="34" width="80" height="16" rx="8" fill="#267bd4"/>
+    <!-- 左镜腿（缩短：外伸从28减到16） -->
+    <path d="M0 28 L-16 16 L-16 28 L0 40 Z" fill="#267bd4"/>
+    <!-- 右镜腿（缩短） -->
+    <path d="M320 28 L336 16 L336 28 L320 40 Z" fill="#267bd4"/>
+    <!-- 左镜片内：扫描框四角（负空间白色） -->
+    <g fill="#ffffff">
+      <!-- 左上角 -->
+      <rect x="14" y="14" width="20" height="4" rx="2"/>
+      <rect x="14" y="14" width="4" height="20" rx="2"/>
+      <!-- 右上角 -->
+      <rect x="86" y="14" width="20" height="4" rx="2"/>
+      <rect x="102" y="14" width="4" height="20" rx="2"/>
+      <!-- 左下角 -->
+      <rect x="14" y="66" width="20" height="4" rx="2"/>
+      <rect x="14" y="50" width="4" height="20" rx="2"/>
+      <!-- 右下角 -->
+      <rect x="86" y="66" width="20" height="4" rx="2"/>
+      <rect x="102" y="50" width="4" height="20" rx="2"/>
+      <!-- 扫描框内：3条SOP步骤线（左对齐，长度递减） -->
+      <rect x="26" y="26" width="32" height="6" rx="3"/>
+      <rect x="26" y="38" width="24" height="6" rx="3"/>
+      <rect x="26" y="50" width="28" height="6" rx="3"/>
+      <!-- 扫描框内右侧：叉叉标记（X） -->
+      <rect x="68" y="37" width="18" height="5" rx="2.5" transform="rotate(45 77 39.5)"/>
+      <rect x="68" y="37" width="18" height="5" rx="2.5" transform="rotate(-45 77 39.5)"/>
+    </g>
+    <!-- 右镜片内：圆头对勾（负空间白色，stroke 方式实现圆头）
+         缩小约 8%，以右镜片中心 (260, 42) 为基准缩放，平衡左右视觉重量 -->
+    <path d="M221 49 L245 68 L289 25" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="12.5" 
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </g>
+  <!-- 下方文字：PRAXIS（以整副眼镜中心 x=264 对齐）
+       眼镜范围：左镜腿尖 88 ~ 右镜腿尖 440，中心 = 264 -->
+  <text x="264" y="320" text-anchor="middle" font-family="Inter, 'Microsoft YaHei', sans-serif" font-size="42" font-weight="700" fill="#267bd4" letter-spacing="4">PRAXIS</text>
+</svg>
